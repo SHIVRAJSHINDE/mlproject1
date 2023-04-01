@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Insurance Indicator</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+   <div class="container mt-5">
+      <h1>Insurance Indicator</h1>
+      <form action="{{ url_for('predict_datapoint')}}" method="post" >
+            <h1>
+                <legend>Insurance calculator model</legend>
+            </h1>
+
+         <div class="form-group-row">
+            <label for="age">Age:</label>
+            <input type="number" class="form-control" id="age" name="age" required placeholder="Enter your Age" min='1' max='100' >
+         </div>
+
+         <div class="form-group">
+            <label for="sex">Sex:</label>
+            <select class="form-control" id="sex" name="sex"  required>
+               <option value="">Select One</option>
+               <option value="male">Male</option>
+               <option value="female">Female</option>
+            </select>
+         </div>
+
+
+         <div class="form-group">
+            <label for="bmi">BMI:</label>
+            <input type="number" class="form-control" id="bmi" name="bmi" step="0.01" required>
+         </div>
+
+         <div class="form-group">
+            <label for="children">Number of Children:</label>
+            <input type="number" class="form-control" id="children" name="children" required>
+         </div>
+
+         <div class="form-group">
+            <label for="smoker">Smoker:</label>
+            <select class="form-control" id="smoker" name="smoker" required>
+               <option value="">Select One</option>
+               <option value="yes">Yes</option>
+               <option value="no">No</option>
+            </select>
+         </div>
+
+         <div class="form-group">
+            <label for="region">Region:</label>
+            <select class="form-control" id="region" name="region" required>
+               <option value="">Select One</option>
+               <option value="northeast">Northeast</option>
+               <option value="southeast">Southeast</option>
+               <option value="southwest">Southwest</option>
+               <option value="northwest">Northwest</option>
+            </select>
+         </div>
+
+         <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+       <h2>
+       THE  prediction is {{results}}
+    </h2>
+
+   </div>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
